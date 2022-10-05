@@ -1,0 +1,564 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,100;1,300;1,400;1,900&display=swap");
+@font-face {
+  font-family: "Futura";
+  src: url("fonts/futura-light-bt.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* CORES DO SITE #3bbbb3 ffd12a*/
+/* FONTS SITE*/
+/* TAMANHO DAS FONTES UTILIZADAS*/
+/*EXPESSURA DAS FONTES UTILIZADAS*/
+/*LAYOUT MARGINS*/
+/* ARREDONDAMENTOS*/
+/*   QUANTIDADE DE CLASSES GERADAS (pt- pb- pr- pl-....) */
+/* TIPOS DE MEDIAS QUERIES*/
+/* REFERENCIAS PARA Z-INDEX*/
+/***********************************************************
+     Adicionando Estilo ao Placeholde em todos os formatos diferentes
+     Modelo:
+     input{
+				@include input-placeholder {
+					color: $grey;
+				}
+		}
+ **********************************************************/
+/*******************************************************
+    Quando utilizar Pseudo Elementos    ::after   ::before
+    Modelo:
+    div::after {
+		@include pseudo;
+		top: -1rem; left: -1rem;
+		width: 1rem; height: 1rem;
+	}
+
+**************************************************************/
+/******************************************
+
+       PARA CENTRALIZAR UM ELEMENTO
+
+ ************************/
+/*****************************************
+   FACILITADOR PARA A CRIAÇÃO DE Z-INDEX
+   MODELOS:
+   .site-header {
+      z-index: z('site-header');
+    }
+******************************************/
+/********************************************
+  DEFININDO COMPORTAMENTOS DIFERENTES CONFORME
+  TAMANHO DAS TELAS, DIRETO NA PRÓPRIA CLASSE
+  modelo
+
+  .site-header {
+    padding: 2rem;
+    font-size: 1.8rem;
+    @include mq('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+  }
+ **************************************/
+section.page-construct {
+  height: calc(100vmin - 33px);
+  width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  section.page-construct {
+    height: calc(100vmax - 33px);
+  }
+}
+
+.frame-back {
+  min-height: calc(100vmin - 20px);
+}
+@media only screen and (max-width: 768px) {
+  .frame-back {
+    min-height: calc(100vmax - 20px);
+  }
+}
+
+/**************************
+     LAYOUT LOGIN
+*****************************/
+section.login {
+  position: absolute;
+  top: 20%;
+  max-width: 300px;
+  width: 100%;
+}
+section.login .card {
+  padding: 41px 10px 22px 20px;
+  border-radius: 30px 0 30px 0;
+}
+section.login .card .campo {
+  position: relative;
+}
+section.login .card .absolute {
+  position: absolute;
+  top: 9px;
+  left: 17px;
+}
+section.login .btn-save {
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+section.login .btn-save input {
+  padding: 10px 30px;
+}
+
+/**************************
+     LAYOUT MENU
+*****************************/
+section.menu {
+  position: fixed;
+  width: 52px;
+  height: 100vmin;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+@media only screen and (max-width: 768px) {
+  section.menu {
+    height: 100vmax;
+  }
+}
+section.menu .item-menu .material-icons {
+  font-size: 1.5em;
+}
+section.menu .item-menu a:hover {
+  background-color: #7fc245;
+}
+section.menu .item-menu a.selected {
+  background-color: #7fc245;
+}
+section.menu .footer {
+  border-top: 0.5px solid white;
+  padding-top: 10px;
+  position: absolute;
+  bottom: 100px;
+  left: 3px;
+}
+
+.float-menu {
+  top: 5px;
+  left: 5px;
+}
+.float-menu .material-icons {
+  font-size: 2em;
+}
+
+/**************************
+     LAYOUT DASHBOARD
+*****************************/
+section.main-panel {
+  width: 100%;
+}
+section.main-panel .bg-background {
+  height: 120px;
+}
+section.main-panel .bg-background .title {
+  margin-left: 10px;
+}
+
+/* Grupo de CARDs*/
+.group-cards {
+  position: absolute;
+  top: 72px;
+  left: 72px;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card.widget {
+  border-radius: 30px 0 30px 0;
+  padding: 0;
+}
+.card.widget .content {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 280px;
+  width: 100%;
+}
+.card.widget .footer {
+  width: 100%;
+  border-radius: 0 0 30px 0;
+}
+
+.widgets.temperature {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 50%;
+}
+.widgets.temperature .info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.widgets.temperature .config {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.float-button {
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .float-button {
+    right: 10px;
+    bottom: auto;
+    top: 10px;
+  }
+}
+.float-button a {
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid #ececec;
+}
+@media only screen and (max-width: 768px) {
+  .float-button a {
+    padding: 5px;
+  }
+}
+.float-button a .material-icons {
+  font-size: 30px !important;
+}
+
+/**************************
+     LAYOUT AGRUPAMENTOS
+*****************************/
+.grouping {
+  display: flex;
+  flex-basis: 100%;
+  max-width: 400px;
+}
+.grouping .material-icons {
+  font-size: 18px;
+  width: 25px;
+}
+.grouping .content-group .name-group {
+  border-bottom: 2px solid #7fc245;
+  align-items: center;
+}
+.grouping .content-group .group-add {
+  height: 70px;
+  width: 100%;
+}
+.grouping .content-group .group-add a {
+  width: 23px;
+  height: 23px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+.grouping .card-group .header {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+.grouping .card-group .header p {
+  align-items: center;
+}
+.grouping .card-group .circle-default {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+.grouping .shared-with .header {
+  display: flex;
+  width: 100%;
+  border-bottom: 0.5px solid #d1d1d1;
+  justify-content: flex-start;
+  align-items: center;
+}
+.grouping .shared-with .content .shared {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.grouping .shared-with .content ul li {
+  margin-top: 5px;
+}
+
+/**************************
+     LAYOUT MEUS DADOS
+*****************************/
+.my-data {
+  display: flex;
+  flex-basis: 100%;
+  max-width: 400px;
+}
+.my-data .material-icons {
+  font-size: 18px;
+  width: 25px;
+}
+.my-data .content-group .name-group {
+  border-bottom: 2px solid #7fc245;
+  align-items: center;
+}
+.my-data .content-group .group-add {
+  height: 70px;
+  width: 100%;
+}
+.my-data .content-group .group-add a {
+  width: 23px;
+  height: 23px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+.my-data .card-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.my-data .card-group .header {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-data .card-group .header p {
+  align-items: center;
+}
+.my-data .card-group .content .progress-bar {
+  width: 100%;
+  position: relative;
+}
+.my-data .card-group .content .progress-bar .barra {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  height: 20px;
+}
+.my-data .card-group .content .progress-bar .sob {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.my-data .data-config {
+  width: 100%;
+}
+.my-data .plans {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.compact {
+  width: 100%;
+  max-width: 400px;
+}
+
+.expanded {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.form-config .item {
+  width: 100%;
+}
+.form-config .chk-container {
+  display: flex;
+  align-items: center;
+}
+.form-config .btn-save,
+.form-config .btn-delete {
+  cursor: pointer;
+}
+.form-config .btn-save,
+.form-config .btn-delete {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/************************
+    PAINEL GERENCIADOR
+*************************/
+.grouping.admin {
+  width: 100%;
+  max-width: 100%;
+}
+
+.card-admin {
+  max-width: 296px;
+  width: 100%;
+}
+.card-admin .header {
+  justify-content: space-around;
+}
+.card-admin .progress-bar {
+  width: 100%;
+  position: relative;
+}
+.card-admin .progress-bar .barra {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  height: 20px;
+}
+.card-admin .progress-bar .sob {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card-admin .action {
+  flex-basis: 100px;
+}
+.card-admin .action .btn a {
+  padding: 8px 20px;
+}
+
+.card-long {
+  width: 100%;
+  max-width: 500px;
+}
+.card-long header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-long header .search {
+  width: 70%;
+  position: relative;
+}
+.card-long header .search input {
+  padding-right: 33px;
+  width: 100%;
+}
+.card-long header .search span {
+  position: absolute;
+  right: 8px;
+  top: 13px;
+}
+.card-long .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #dcdcdc;
+}
+.card-long .row .icon {
+  flex-basis: 30px;
+}
+.card-long .row .name {
+  flex-basis: calc(100% - 220px);
+}
+.card-long .row .plan {
+  flex-basis: 80px;
+}
+.card-long .row .action {
+  flex-basis: 100px;
+}
+.card-long .row .action .btn a {
+  padding: 8px 20px;
+}
+
+/************************
+    LAYOUT TELA MODAL
+*************************/
+.layout-modal, .layout-modal-msg {
+  position: fixed;
+  z-index: 6;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transform: scale(0);
+}
+.layout-modal .card, .layout-modal-msg .card {
+  position: relative;
+  height: max-content;
+  margin: 100px auto;
+  transform: scale(0);
+  width: 100%;
+  max-width: 383px;
+  display: none;
+}
+.layout-modal #card-module, .layout-modal-msg #card-module {
+  transform: scale(0);
+}
+.layout-modal input, .layout-modal select, .layout-modal-msg input, .layout-modal-msg select {
+  width: 100%;
+}
+
+.input-icon {
+  position: relative;
+}
+.input-icon span {
+  position: absolute;
+  top: 10px;
+}
+.input-icon.begin span {
+  left: 10px;
+}
+.input-icon.begin input {
+  padding-left: 41px;
+}
+.input-icon.end span {
+  right: 10px;
+}
+.input-icon.end input {
+  padding-right: 41px;
+}
+
+.open {
+  transform: scale(1);
+}
+
+.menu-float-back {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 7;
+}
+
+.card form {
+  width: 100%;
+}
+
+.float-close {
+  position: absolute;
+  right: 0px;
+  top: -1px;
+}
+
+/************************
+    LAYOUT TELA CONFIG
+*************************/
+.menu-bar {
+  width: 100%;
+}
+
+.bg-journey-carlos {
+  background-image: url("https://automacaonaveia.cemf.com.br/themes/avwebV2/assets/images/bg-journey-carlos.png");
+  background-position-x: left top;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+}
+
+/*# sourceMappingURL=material.cemf.appv1.css.map */

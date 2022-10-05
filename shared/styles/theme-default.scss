@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,100;1,300;1,400;1,900&display=swap');
+
+@font-face {
+  font-family: "Futura";
+  src: url("fonts/futura-light-bt.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* CORES DO SITE #3bbbb3 ffd12a*/
+$color-primary : #7fc245;
+$color-secondary : #810684;
+$color-pink: #ba007c;
+$color-gray: #999999;
+$color-yellow: #fdb712;
+$color-gold: #d99e17; //#ff8a00;
+$color-red: #e70c1b;
+$color-blue: #2c3487;
+$color-blue-light: #009bdb;
+$color-green: #70A83B;
+$color-yellow-light: #fffed2;
+$color-white: #FFFFFF;
+$color-gray-light: #ececec;
+$color-gray-light-dark: #c3c3c3;
+$color-black: #292b30;
+$color-orange: #fbb306;
+$color-orange-dark: #db5b00;
+$color-purple: #462b74;
+
+/* FONTS SITE*/
+$font-theme-spotlight: 'Bebas Neue', cursive;
+$font-theme-default: 'Roboto Light', sans-serif;
+$font-theme-text-1: 'Roboto Condensed', sans-serif;
+$font-theme-montserrat: 'Montserrat', sans-serif;
+$font-theme-futura: 'Futura', sans-serif;
+
+
+/* TAMANHO DAS FONTES UTILIZADAS*/
+$font-micro: 0.6em;
+$font-tiny: 0.7em;
+$font-min: 0.8em;
+$font-small: 0.875em;
+$font-normal: 1em;
+$font-medium: 1.2em;
+$font-large: 1.4em;
+$font-max: 1.8em;
+$font-big: 2.5em;
+
+
+/*EXPESSURA DAS FONTES UTILIZADAS*/
+$weight-light: 300;
+$weight-normal: 400;
+$weight-strong: 600;
+$weight-bold: 700;
+$weight-black: 800;
+
+/*LAYOUT MARGINS*/
+$size-page: 1200px;
+
+/* ARREDONDAMENTOS*/
+$radius-normal: 5px;
+$radius-medium: 10px;
+$radius-large: 20px;
+$radius-big: 30%;
+$radius-round: 50%;
+
+/*   QUANTIDADE DE CLASSES GERADAS (pt- pb- pr- pl-....) */
+$quantidade-fontes: 30;
+
+/* TIPOS DE MEDIAS QUERIES*/
+$media-phone: "phone";
+$media-phone-wide: "phone-whide";
+$media-phablet: "phablet";
+$media-tablet-small: "tablet-small";
+$media-tablet: "tablet";
+$media-tablet-wide: "tablet-wide";
+$media-desktop: "desktop";
+$media-desktop-wide: "desktop-wide";
+
+/* REFERENCIAS PARA Z-INDEX*/
+$index-back: "index-back";
+$index-content: "index-content";
+$index-option: "index-option";
+$index-menu: "index-menu";
+$index-menu-float: "index-menu-float";
+$index-modal: "index-modal";
+$index-response: "index-response";
+
+

@@ -1,0 +1,1171 @@
+@charset "UTF-8";
+
+/*$color-primary: #fff;*/
+@import "theme-default";
+@import "mixin-cemf";
+@import "helpers-cemf";
+@import "animation-cemf";
+
+
+/* BARRA DE ROLAGEM*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+/* CORES PLACEHOLDER*/
+::placeholder {
+  color: #c3c3c3;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #c3c3c3;//#afafaf;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #c3c3c3;
+}
+
+/* MARGINS FOLHA DE ESTILO*/
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto Light', sans-serif;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+/**********************
+FACILITADORES
+**********************/
+
+.none {
+  display: none !important;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
+.first-upper {
+  text-transform: capitalize;
+}
+
+.justify{
+  text-align: justify;
+}
+
+.center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.word-wrap{
+  word-wrap: break-word;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.circle {
+  @include radius($radius-round);
+}
+
+.flex {
+  display: flex;
+
+  &.self-stretch {
+    align-self: stretch;
+  }
+
+  &.self-center {
+    align-self: center;
+    justify-content: center;
+  }
+
+  &.between {
+    justify-content: space-between;
+  }
+}
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.fb-100{
+  flex-basis: 100%;
+}
+
+/**********************
+  PADRÃO DOS BOTÕES
+**********************/
+.btn-default {
+  padding: 10px 20px;
+  border: none;
+  @include radius($radius-normal);
+  text-align: center;
+  font-size: 0.8em;
+
+  &.success {
+    background: $color-green;
+    color: white;
+  }
+
+  &.info {
+    background: $color-blue;
+    color: white;
+  }
+
+  &.warning {
+    background: $color-orange-dark;
+  }
+
+  &.alert {
+    background: $color-red;
+    color: white;
+  }
+}
+
+.btn-round{
+  padding: 10px 20px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+
+  &.min{
+    padding: 3px 5px;
+  }
+}
+
+/**********************
+  PADRÃO DOS ACTIONS FORMS
+**********************/
+
+input[type=text], [type=password], [type=number], [type=email], [type=file], [type=date], [type=time], textarea {
+  @include radius(5px);
+  padding: 10px;
+  border: 1px solid #f3f3f3;
+  width: calc(100% - 22px);
+  font-size: 0.9em;
+  margin: 2px auto;
+  -webkit-appearance: none;
+}
+
+input:disabled {
+  opacity: 0.6;
+  color: #9a9a9a;
+}
+
+/* Simular campo inativo - Sugestão @GabrielRodrigues */
+select {
+  @include radius(5px);
+  border: 1px solid #f3f3f3;
+  padding: 10px;
+  width: calc(100% - 22px);
+  font-size: 0.9em;
+  margin: 2px auto;
+  overflow: hidden;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #ffffff url('https://protepop.cemf.com.br/shared/images/icons/ic_arrow_drop_down_black_18dp.png') 98.5% 50% no-repeat;
+  /* Trocar URL quando mudar servidor para não dar problema no CSRF devido ao request **/
+
+  &[readonly] {
+    background: #eee;
+    pointer-events: none;
+    touch-action: none;
+  }
+
+  option {
+    &:disabled {
+      background: #e5e5e5;
+    }
+  }
+}
+
+
+/*********************
+   FRAMEWORK CEMF
+**********************/
+.color-primary{
+  background: $color-primary;
+}
+.--color-primary{
+  color: $color-primary;
+}
+.color-secondary{
+  background: $color-secondary;
+}
+.--color-secondary{
+  color: $color-secondary;
+}
+.color-vtsd{
+  background :#f3f3f3;
+}
+.--color-vtsd{
+  color :#f3f3f3;
+}
+
+/* CORES PARA BACKGROUND*/
+.-white {
+  background: $color-white;
+}
+
+.-black {
+  background: $color-black;
+}
+
+.-pink {
+  background: $color-pink;
+}
+
+.-gray {
+  background: $color-gray;
+}
+
+.-gray-light {
+  background: $color-gray-light;
+}
+
+.-gray-light-dark {
+  background: $color-gray-light-dark;
+}
+
+.-yellow {
+  background: $color-yellow;
+}
+
+.-yellow-light {
+  background: $color-yellow-light;
+}
+
+.-gold {
+  background: $color-gold;
+}
+
+.-red {
+  background: $color-red;
+}
+
+.-blue {
+  background: $color-blue;
+}
+
+.-blue-light {
+  background: $color-blue-light;
+}
+
+.-green {
+  background: $color-green;
+}
+
+.-orange {
+  background: $color-orange;
+}
+
+.-orange-dark {
+  background: $color-orange-dark
+}
+
+.-purple {
+  background: $color-purple;
+}
+
+//CORES DE TEXTOS
+.--white {
+  color: $color-white;
+}
+
+.--black {
+  color: $color-black;
+}
+
+.--pink {
+  color: $color-pink;
+}
+
+.--gray {
+  color: $color-gray;
+}
+
+.--gray-light {
+  color: $color-gray-light;
+}
+
+.--gray-light-dark {
+  color: $color-gray-light-dark;
+}
+
+.--yellow {
+  color: $color-yellow;
+}
+
+.--yellow-light {
+  color: $color-yellow-light;
+}
+
+.--gold {
+  color: $color-gold;
+}
+
+.--red {
+  color: $color-red;
+}
+
+.--blue {
+  color: $color-blue;
+}
+
+.--blue-light {
+  color: $color-blue-light;
+}
+
+.--green {
+  color: $color-green;
+}
+
+.--orange {
+  color: $color-orange;
+}
+
+.--orange-dark {
+  color: $color-orange-dark
+}
+
+.--purple {
+  color: $color-purple;
+}
+
+/* FONTES */
+
+.cf-text {
+  font-family: $font-theme-default;
+  //&.spotlight{
+  //  font-family: $font-theme-spotlight;
+  //}
+  &.condensed {
+    font-family: $font-theme-text-1;
+  }
+  &.montserrat{
+    font-family: $font-theme-montserrat !important;
+  }
+  &.bebas {
+    font-family: $font-theme-spotlight;
+  }
+  &.futura{
+    font-family: $font-theme-futura;
+  }
+  
+}
+
+.cf-text-bebas {
+  font-family: $font-theme-default;
+}
+
+.cf-text-robot-cond {
+  font-family: $font-theme-default !important;
+}
+
+.cf-text-montserrat{
+  font-family: $font-theme-default !important;
+}
+
+.cf-text-1 {
+  @extend .cf-text;
+  font-size: $font-micro;
+}
+
+.cf-text-2 {
+  @extend .cf-text;
+  font-size: $font-tiny;
+}
+
+.cf-text-3 {
+  @extend .cf-text;
+  font-size: $font-min;
+}
+
+.cf-text-4 {
+  @extend .cf-text;
+  font-size: $font-small;
+  @include mq($media-tablet){
+    font-size: 0.8em;
+  }
+}
+
+.cf-text-5 {
+  @extend .cf-text;
+  font-size: $font-normal;
+  @include mq($media-tablet){
+    font-size: 0.875em;
+  }
+}
+
+.cf-text-6 {
+  @extend .cf-text;
+  font-size: $font-medium;
+  @include mq($media-tablet){
+    font-size: 1em;
+  }
+}
+
+.cf-text-7 {
+  @extend .cf-text;
+  font-size: $font-large;
+  @include mq($media-tablet){
+    font-size: 1.2em;
+  }
+}
+
+.cf-text-8 {
+  @extend .cf-text;
+  font-size: $font-max;
+  @include mq($media-tablet){
+    font-size: 1.3em;
+  }
+}
+
+.cf-text-9 {
+  @extend .cf-text;
+  font-size: $font-big;
+  @include mq($media-tablet){
+    font-size: 1.8em;
+  }
+}
+.cf-text-10 {
+  @extend .cf-text;
+  font-size: 3em;
+  @include mq($media-tablet){
+    font-size: 2em;
+  }
+}
+.cf-text-11 {
+  @extend .cf-text;
+  font-size: 4.5em;
+  @include mq($media-tablet){
+    font-size: 3.0em;
+  }
+}
+
+.black {
+  font-weight: $weight-black;
+}
+
+.bold {
+  font-weight: $weight-bold;
+}
+
+.strong {
+  font-weight: $weight-strong;
+}
+
+.normal {
+  font-weight: $weight-normal;
+}
+
+.light {
+  font-weight: $weight-light;
+}
+
+// BORDER
+
+.bt-5{ border-top: 5px solid}
+.bt-10{border-top: 10px solid}
+.bt-15{border-top: 15px solid;}
+.bt-20{border-top: 20px solid;}
+.br-5{ border-right: 5px solid}
+.br-10{border-right: 10px solid}
+.br-15{border-right: 15px solid;}
+.br-20{border-right: 20px solid;}
+.bb-5{ border-bottom: 5px solid}
+.bb-10{border-bottom: 10px solid}
+.bb-15{border-bottom: 15px solid;}
+.bb-20{border-bottom: 20px solid;}
+.bl-5{ border-left: 5px solid}
+.bl-10{ border-left: 10px solid}
+.bl-15{ border-left: 15px solid}
+.bl-20{ border-left: 20px solid}
+
+
+.card {
+  @include radius(3px);
+  padding: 12px 3px;
+  @include shadow(1);
+
+  &.selected {
+    background: #f0f0f0;
+  }
+}
+
+
+/* ANIMATION*/
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+.delay-6 {
+  animation-delay: 0.6s;
+}
+
+.delay-7 {
+  animation-delay: 0.7s;
+}
+
+.delay-8 {
+  animation-delay: 0.8s;
+}
+
+.delay-9 {
+  animation-delay: 0.9s;
+}
+
+.delay-10 {
+  animation-delay: 1.0s;
+}
+
+.delay-11 {
+  animation-delay: 1.1s;
+}
+
+.delay-12 {
+  animation-delay: 1.2s;
+}
+
+/* ANIMAÇÕES PERSONALIZADAS*/
+
+.inputMagicDown {
+  -webkit-animation-name: inputMagicDown;
+  -moz-animation-name: inputMagicDown;
+  -o-animation-name: inputMagicDown;
+  animation-name: inputMagicDown;
+}
+
+@-webkit-keyframes inputMagicDown {
+  from {
+    top: -4px;
+    left: 11px;
+    color: $color-blue;
+  }
+  to {
+    top: 13px;
+    left: 11px;
+    color: $color-gray-light-dark;
+  }
+}
+
+.inputMagicUp {
+  -webkit-animation-name: inputMagicUp;
+  -o-animation-name: inputMagicUp;
+  -moz-animation-name: inputMagicUp;
+  animation-name: inputMagicUp;
+  color: $color-blue;
+
+  top: -6px !important;
+  left: 11px !important;
+  font-weight: bold;
+  background: #FFFFFF;
+
+}
+
+@-webkit-keyframes inputMagicUp {
+  from {
+    color: $color-gray-light-dark;
+    top: 13px;
+    left: 11px;
+  }
+  to {
+    top: -6px !important;
+    left: 11px !important;
+    font-weight: bold;
+    background: #FFFFFF;
+  }
+}
+
+
+/*NOT FOUND PAGE 404*/
+.not_found {
+  text-align: center;
+  color: #555555;
+  margin-top: 100px;
+
+  .container {
+    display: flex;
+    margin: 5px;
+  }
+}
+
+.not_found .error {
+  font-size: 8em;
+  font-weight: $weight-light;
+  color: #cccccc;
+  margin-bottom: 40px;
+  padding-top: 30px;
+}
+
+.not_found_header {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.not_found p a {
+  color: $color-green;
+  text-decoration: none;
+  font-weight: $weight-bold;
+}
+
+.not_found p a:hover {
+  text-decoration: underline;
+}
+
+.not_found_btn {
+  display: inline-block;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 20px 40px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: $weight-bold;
+}
+
+/*
+    CRIANDO O PADRÃO PARA CHECK BOX
+*/
+
+/* The container */
+.chk-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  //font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.chk-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  background-color: #eaeaea;
+}
+
+
+@include mq($media-tablet) {
+  .checkbox_week.cf-text-1 {
+    font-size: 0.5em;
+  }
+}
+
+
+/* On mouse-over, add a grey background color */
+.chk-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.chk-container input:checked ~ .checkmark {
+  background-color: $color-secondary;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.chk-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.chk-container .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+/* LOADING*/
+/*DEFAULT LOAD*/
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 65px;
+  height: 53px;
+  //background: #1e6ec6;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 12px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 26px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 43px;
+  animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 0px;
+    height: 44px;
+  }
+  50%, 100% {
+    top: 15px;
+    height: 25px;
+  }
+}
+
+.lds-facebook-filter {
+  height: 20px;
+}
+
+.lds-facebook-filter div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 12px;
+  background: #fff;
+  animation: lds-facebook-filter 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+@keyframes lds-facebook-filter {
+  0% {
+    top: 0px;
+    height: 22px;
+  }
+  50%, 100% {
+    top: 8px;
+    height: 10px;
+  }
+}
+
+/****************
+  MODAL
+*****************/
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: z($index-modal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  article.card {
+    margin-top: -100px;
+    padding: 20px 30px;
+    position: relative;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+  }
+
+  .modal-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    h1,h2{
+      text-align: left;
+      flex-basis: 100%;
+    }
+  }
+
+  .modal-content {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+    input {
+      flex-basis: 100%;
+    }
+  }
+
+  .modal-buttom {
+    flex-basis: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  [data-close] {
+    padding: 5px 8px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+  }
+}
+
+/******************
+   MESSAGE REQUEST
+ *****************/
+.message {
+  color: #ffffff;
+  font-size: $font-normal;
+  font-weight: $weight-bold;
+  display: block;
+  //width: 100%;
+  padding: 15px;
+  border: 2px solid #cccccc;
+  margin-bottom: 10px;
+  @include radius($radius-normal);
+}
+
+form .message {
+  text-align: center;
+}
+
+.message.success {
+  background: $color-green;
+  color: $color-white;
+  border-color: $color-green;
+}
+
+.message.info {
+  background: $color-blue;
+  color: $color-white;
+  border-color: $color-blue
+}
+
+.message.warning {
+  background: $color-orange-dark;
+  color: $color-white;
+  border-color: $color-orange-dark;
+}
+
+.message.error {
+  background: $color-red;
+  color: $color-white;
+  border-color: $color-red;
+}
+
+.message_btn {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #ffffff;
+  background-color: $color-white;
+  @include radius($radius-normal);
+  cursor: pointer;
+  opacity: 0.8;
+  transition-duration: 0.2s;
+}
+
+.message_btn:hover {
+  opacity: 1;
+}
+
+/*AJAX RESPONSES MESSAGES*/
+
+.ajax_response {
+  position: fixed;
+  padding: 20px 20px 0 0;
+  z-index: z($index-response);
+  top: -20px;
+  right: 5px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  a{
+    display: flex;
+    align-items: center;
+    @include set-color-a($color-white);
+  }
+
+}
+
+.ajax_response .message {
+  color: #ffffff;
+  font-size: $font-min;
+  font-weight: $weight-normal;
+  overflow: hidden;
+  border: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 15px 20px 15px;
+  background: #333333;
+  margin-bottom: 15px;
+  position: relative;
+  margin-top: 20px;
+
+  @include radius(5px);
+  cursor: pointer;
+  img{
+    width: 13px;
+  }
+}
+
+.ajax_response .message:before {
+  flex-basis: 0;
+  margin: -5px 15px 0 0 !important;
+  font-size: $font-max;
+  // color: rgba(0, 0, 0, 0.5);
+}
+
+.ajax_response .message_time {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 4%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.ajax_response .message.success {
+  background: $color-green;
+}
+
+.ajax_response .message.info {
+  background: $color-blue
+}
+
+.ajax_response .message.warning {
+  background: $color-orange-dark
+}
+
+.ajax_response .message.error {
+  background: $color-red;
+}
+
+.ajax_response .message.premium {
+  background: #222222;
+
+  .message_time{
+    background:rgba(255, 255, 255, 0.2);
+  }
+}
+
+gold{
+  color:$color-gold;
+  text-align: center;
+}
+
+
+/*****************************
+    MENU SOCIAL
+ */
+section.social_auth{
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  .flex_layout{
+   //background:#1e6ec6 ;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .social_title{
+      display: flex;
+      justify-content: center;
+    }
+    .separator{
+      width: 100px;
+      border-top: 1px solid #000;
+    //  background: yellow;
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+  }
+  article{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    a{
+      padding: 5px;
+    //  background: #FFFFFF;
+      @include radius(5px);
+      margin: 3px;
+      flex-basis: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include shadow(2);
+     // @include set-color-a($color-black);
+      &:hover{
+        @include shadow(8);
+      }
+    }
+    img{
+      width: 30px;
+      //padding: 5px;
+    }
+  }
+}
+
+/*************************
+   SPLASH
+ *************************/
+
+.splash_notify{
+  position: absolute;
+  top: 98vw;
+  @include radius(5px);
+  @include shadow(8);
+  z-index: z($index-modal);
+  max-width: 295px;
+  left: calc(50% - 141px);
+  padding: 3px 3px 1px 3px;
+  border:1px solid red;
+  a{
+    display: flex;
+    align-items: center;
+    .image_icon{
+      width: 91px;
+     // height: 60px;
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .content{
+      margin: 10px;
+      margin-right: 64px;
+    }
+  }
+  .close{
+    position: absolute;
+    @include radius(50%);
+    padding: 0 5px;
+    cursor: pointer;
+    right: 5px;
+    top:21px;
+    &:hover{
+      background: red;
+      color:white;
+    }
+  }
+}
+
+$shadows: 1, 2, 3, 4, 6, 8, 9, 12, 16, 24;
+
+/* SHADOW CARDS */
+@each $shadow in $shadows {
+  .shadow-top-z-#{$shadow} {
+    @include shadow($shadow);
+  }
+}
+
+/* DiMENSÕES */
+@include dimins($quantidade-fontes);
+
+/* BACKGROUND */
+//@include background(10);
+
+
+
+

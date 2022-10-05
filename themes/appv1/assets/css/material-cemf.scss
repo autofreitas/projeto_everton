@@ -1,0 +1,550 @@
+@import "../../../../shared/styles/theme-default";
+@import "../../../../shared/styles/mixin-cemf";
+@import "../../../../shared/styles/helpers-cemf";
+
+section.page-construct {
+  height: calc(100vmin - 33px);
+  width: 100%;
+  @include mq($media-tablet) {
+    height: calc(100vmax - 33px);
+  }
+}
+
+.frame-back {
+  min-height: calc(100vmin - 20px);
+  @include mq($media-tablet) {
+    min-height: calc(100vmax - 20px);
+  }
+}
+
+/**************************
+     LAYOUT LOGIN
+*****************************/
+
+section.login {
+  position: absolute;
+  top: 20%;
+  max-width: 300px;
+  width: 100%;
+
+  .card {
+    padding: 41px 10px 22px 20px;
+    border-radius: 30px 0 30px 0;
+    .campo {
+      position: relative;
+    }
+    .absolute {
+      position: absolute;
+      top: 9px;
+      left: 17px;
+    }
+  }
+
+  .btn-save {
+    justify-content: flex-end;
+    padding-right: 10px;
+    input {
+      padding: 10px 30px;
+    }
+  }
+}
+
+/**************************
+     LAYOUT MENU
+*****************************/
+section.menu {
+  position: fixed;
+  width: 52px;
+  height: 100vmin;
+  top: 0;
+  left: 0;
+  z-index: z($index-menu);
+
+  @include mq($media-tablet) {
+    height: 100vmax;
+  }
+
+  .item-menu {
+    .material-icons {
+      font-size: 1.5em;
+    }
+
+    a:hover {
+      background-color: $color-primary;
+    }
+
+    a.selected {
+      background-color: $color-primary;
+    }
+  }
+
+  .footer {
+
+    border-top:0.5px solid white;
+    padding-top: 10px;
+    position: absolute;
+    bottom: 100px;
+    left: 3px;
+  }
+}
+
+.float-menu {
+  // position: fixed;
+  top: 5px;
+  left: 5px;
+  .material-icons {
+    font-size: 2em;
+  }
+}
+
+/**************************
+     LAYOUT DASHBOARD
+*****************************/
+section.main-panel {
+  width: 100%;
+  .bg-background {
+    height: 120px;
+    .title {
+      margin-left: 10px;
+    }
+  }
+}
+
+/* Grupo de CARDs*/
+.group-cards {
+  position: absolute;
+  top: 72px;
+  left: 72px;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card.widget {
+  border-radius: 30px 0 30px 0;
+  padding: 0;
+
+  .content {
+    // padding: 24px 10px 22px 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+    border-radius: 0 0 30px 0;
+  }
+}
+
+// CONFIGURAÇOES PERSONALIZADAS
+.widgets {
+  &.temperature {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .config {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+//Float Button
+.float-button{
+  position: fixed;
+  bottom:60px;
+  right: 30px;
+
+  @include mq($media-tablet){
+    right: 10px;
+    bottom:auto;
+    top:10px;
+  }
+
+  a{
+    padding: 10px;
+    border-radius: 50%;
+    border:1px solid $color-gray-light;
+    @include mq($media-tablet){
+      padding: 5px;
+    }
+     .material-icons{
+      font-size: 30px !important;
+     }
+  }
+}
+
+/**************************
+     LAYOUT AGRUPAMENTOS
+*****************************/
+
+.grouping {
+  display: flex;
+  flex-basis: 100%;
+  max-width: 400px;
+
+  .material-icons {
+    font-size: 18px;
+    width: 25px;
+  }
+  .content-group {
+    .name-group {
+      border-bottom: 2px solid $color-primary;
+      align-items: center;
+    }
+
+    .group-add {
+      height: 70px;
+      width: 100%;
+      a {
+        width: 23px;
+        height: 23px;
+        @include radius(30px);
+      }
+    }
+  }
+  .card-group {
+    .header {
+      display: flex;
+      width: 100%;
+      position: relative;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        align-items: center;
+      }
+    }
+    .circle-default {
+      display: block;
+      width: 10px;
+      height: 10px;
+      @include radius(30px);
+    }
+  }
+
+  .shared-with {
+    .header {
+      display: flex;
+      width: 100%;
+      border-bottom: 0.5px solid #d1d1d1;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .content {
+      .shared {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      ul li {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+/**************************
+     LAYOUT MEUS DADOS
+*****************************/
+
+.my-data {
+  display: flex;
+  flex-basis: 100%;
+  max-width: 400px;
+
+  .material-icons {
+    font-size: 18px;
+    width: 25px;
+  }
+  .content-group {
+    .name-group {
+      border-bottom: 2px solid $color-primary;
+      align-items: center;
+    }
+
+    .group-add {
+      height: 70px;
+      width: 100%;
+      a {
+        width: 23px;
+        height: 23px;
+        @include radius(30px);
+      }
+    }
+  }
+  .card-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header {
+      display: flex;
+      width: 100%;
+      position: relative;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        align-items: center;
+      }
+    }
+    .content {
+      .progress-bar {
+        width: 100%;
+        position: relative;
+        .barra {
+          display: block;
+          width: 100%;
+          border-radius: 5px;
+          height: 20px;
+        }
+        .sob {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .data-config {
+    width: 100%;
+  }
+
+  .plans {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.compact {
+  width: 100%;
+  max-width: 400px;
+}
+.expanded {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.align-center {
+  align-items: center;
+}
+
+.form-config {
+  .item {
+    width: 100%;
+  }
+  .chk-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-save,
+  .btn-delete {
+    cursor: pointer;
+  }
+
+  .btn-save,
+  .btn-delete {
+    cursor: pointer;
+  }
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+/************************
+    PAINEL GERENCIADOR
+*************************/
+.grouping.admin {
+  width: 100%;
+  max-width: 100%;
+}
+.card-admin {
+  max-width: 296px;
+  width: 100%;
+  .header {
+    justify-content: space-around;
+  }
+  .progress-bar {
+    width: 100%;
+    position: relative;
+    .barra {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      height: 20px;
+    }
+    .sob {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .action {
+    flex-basis: 100px;
+
+    .btn a{
+      padding:8px 20px;
+    }
+  }
+}
+
+.card-long {
+  width: 100%;
+  max-width: 500px;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .search {
+      width: 70%;
+      position: relative;
+      input {
+        padding-right: 33px;
+        width: 100%;
+      }
+      span {
+        position: absolute;
+        right: 8px;
+        top: 13px;
+      }
+    }
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #dcdcdc;
+
+    .icon {
+      flex-basis: 30px;
+    }
+    .name {
+      flex-basis: calc(100% - 220px);
+    }
+    .plan {
+      flex-basis: 80px;
+    }
+    .action {
+      flex-basis: 100px;
+
+      .btn a{
+        padding:8px 20px;
+      }
+    }
+  }
+}
+
+/************************
+    LAYOUT TELA MODAL
+*************************/
+.layout-modal, .layout-modal-msg{
+   position: fixed;
+   z-index: z($index-modal);
+   width: 100vw;
+   height: 100vh;
+   top:0;
+   left:0;
+   display: flex;
+   justify-content: center;
+   transform: scale(0);
+   .card{
+      position: relative;
+      height: max-content;
+      margin: 100px auto; 
+      transform: scale(0);
+      width: 100%;
+      max-width: 383px;
+      display: none;
+   }
+   #card-module{
+    transform: scale(0);
+   }
+   input,select{
+    width: 100%;
+  }
+}
+
+.input-icon{
+  position: relative;
+  
+  span{
+    position: absolute;
+    top:10px;
+  }
+
+  &.begin{
+    span{
+      left:10px;
+    }
+    input{
+      padding-left: 41px;
+    }
+  }
+
+  &.end{
+    span{
+    right:10px;
+    }
+    input{
+      padding-right: 41px;
+    }
+  }
+ 
+}
+
+.open{
+  transform: scale(1);
+}
+
+.menu-float-back{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    z-index: z($index-response);
+}
+
+.card form{
+  width: 100%;
+}
+.float-close{
+  position: absolute;
+  right: 0px;
+  top: -1px;
+
+}
+
+/************************
+    LAYOUT TELA CONFIG
+*************************/
+.menu-bar {
+  width: 100%;
+}
+
+.bg-journey-carlos {
+  background-image: url("https://automacaonaveia.cemf.com.br/themes/avwebV2/assets/images/bg-journey-carlos.png");
+  background-position-x: left top;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+}

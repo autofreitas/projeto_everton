@@ -1,0 +1,7 @@
+<?php $v->layout("_theme", ["title" => $subject]); ?>
+
+<h2><?= $headline ?? '' ?></h2>
+<?= $message; ?>
+
+<p><a class='<?= $classButton ?? '' ?>' title='<?= $button ?? '' ?>' href='<?= $link ?? '' ?>'><?= $button ?? '' ?></a></p>
+<br>

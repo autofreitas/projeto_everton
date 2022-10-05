@@ -1,0 +1,39 @@
+{
+  "name": "autofreitas/projeto_everton",
+  "description": "Sistema para Monitoramento de Temperatura e Energia",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Carlos Freitas",
+      "email": "carlos@autofreitas.com.br",
+      "role": "developer",
+      "homepage": "http://www.cemf.com.br"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "psr-4": {
+      "Source\\": "source/"
+    },
+    "files": [
+      "source/Boot/Config.php",
+      "source/Boot/DbConfig.php",
+      "source/Boot/Helpers.php"
+    ]
+  },
+  "require": {
+    "php": "^7.3",
+    "ext-pdo": "^7.2",
+    "phpmailer/phpmailer": "~6.1",
+    "league/plates": "v4.0.0-alpha",
+    "coffeecode/uploader": "^1.0",
+    "coffeecode/cropper": "^1.2",
+    "coffeecode/optimizer": "^2.0",
+    "coffeecode/router": "^1.0",
+    "monolog/monolog":"^2.0",
+    "sendgrid/sendgrid": "~7"
+  }
+}

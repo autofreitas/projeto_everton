@@ -1,0 +1,65 @@
+
+
+/*****************************************
+   FACILITADOR PARA A CRIAÇÃO DE Z-INDEX
+   MODELOS:
+   .site-header {
+      z-index: z('site-header');
+    }
+******************************************/
+
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
+}
+
+$z-indexes: (
+        $index-response,
+        $index-modal,
+        $index-menu-float,
+        $index-menu,
+        $index-option,
+        $index-content,
+        $index-back,
+);
+
+
+/********************************************
+  DEFININDO COMPORTAMENTOS DIFERENTES CONFORME
+  TAMANHO DAS TELAS, DIRETO NA PRÓPRIA CLASSE
+  modelo
+
+  .site-header {
+    padding: 2rem;
+    font-size: 1.8rem;
+    @include mq('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+  }
+ **************************************/
+$breakpoints: (
+        $media-phone: 401px,
+        $media-phone-wide: 481px,
+        $media-phablet: 561px,
+        $media-tablet-small: 641px,
+        $media-tablet: 769px,
+        $media-tablet-wide: 1025px,
+        $media-desktop: 1249px,
+        $media-desktop-wide: 1441px
+);
+@mixin mq($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
